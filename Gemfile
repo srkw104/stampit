@@ -45,3 +45,10 @@ end
 
 gem 'unicorn'
 
+gem 'devise'
+gem 'cancancan'
+gem 'rails_admin'
+gem 'haml-rails'
+gem 'erb2haml'
+
+

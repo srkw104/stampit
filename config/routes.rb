@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :stamps
+
+  resources :tournaments
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
   root to: 'root#index'
 
   get 'root/index'
