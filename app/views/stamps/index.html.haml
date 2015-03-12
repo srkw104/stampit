@@ -1,0 +1,29 @@
+%h1 Listing stamps
+
+%table
+  %tr
+    %th Tournament
+    %th Name
+    %th Beacon minor
+    %th Latitude
+    %th Longitude
+    %th Deleted
+    %th
+    %th
+    %th
+
+  - @stamps.each do |stamp|
+    %tr
+      %td= stamp.tournament_id
+      %td= stamp.name
+      %td= stamp.beacon_minor
+      %td= stamp.latitude
+      %td= stamp.longitude
+      %td= stamp.deleted
+      %td= link_to 'Show', stamp
+      %td= link_to 'Edit', edit_stamp_path(stamp)
+      %td= link_to 'Destroy', stamp, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Stamp', new_stamp_path

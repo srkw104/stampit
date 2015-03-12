@@ -1,0 +1,25 @@
+= form_for @tournament do |f|
+  - if @tournament.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tournament.errors.count, "error")} prohibited this tournament from being saved:"
+      %ul
+        - @tournament.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :beacon_major
+    = f.number_field :beacon_major
+  .field
+    = f.label :started_at
+    = f.datetime_select :started_at
+  .field
+    = f.label :ended_at
+    = f.datetime_select :ended_at
+  .field
+    = f.label :deleted
+    = f.check_box :deleted
+  .actions
+    = f.submit 'Save'

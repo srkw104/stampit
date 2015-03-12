@@ -1,0 +1,27 @@
+%h1 Listing tournaments
+
+%table
+  %tr
+    %th Name
+    %th Beacon major
+    %th Started at
+    %th Ended at
+    %th Deleted
+    %th
+    %th
+    %th
+
+  - @tournaments.each do |tournament|
+    %tr
+      %td= tournament.name
+      %td= tournament.beacon_major
+      %td= tournament.started_at
+      %td= tournament.ended_at
+      %td= tournament.deleted
+      %td= link_to 'Show', tournament
+      %td= link_to 'Edit', edit_tournament_path(tournament)
+      %td= link_to 'Destroy', tournament, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tournament', new_tournament_path

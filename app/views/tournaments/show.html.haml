@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tournament.name
+%p
+  %b Beacon major:
+  = @tournament.beacon_major
+%p
+  %b Started at:
+  = @tournament.started_at
+%p
+  %b Ended at:
+  = @tournament.ended_at
+%p
+  %b Deleted:
+  = @tournament.deleted
+
+= link_to 'Edit', edit_tournament_path(@tournament)
+\|
+= link_to 'Back', tournaments_path

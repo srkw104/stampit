@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournament_id: 1
+  name: MyString
+  beacon_minor: 1
+  latitude: 1.5
+  longitude: 1.5
+  deleted: false
+
+two:
+  tournament_id: 1
+  name: MyString
+  beacon_minor: 1
+  latitude: 1.5
+  longitude: 1.5
+  deleted: false

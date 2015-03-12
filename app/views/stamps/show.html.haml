@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Tournament:
+  = @stamp.tournament_id
+%p
+  %b Name:
+  = @stamp.name
+%p
+  %b Beacon minor:
+  = @stamp.beacon_minor
+%p
+  %b Latitude:
+  = @stamp.latitude
+%p
+  %b Longitude:
+  = @stamp.longitude
+%p
+  %b Deleted:
+  = @stamp.deleted
+
+= link_to 'Edit', edit_stamp_path(@stamp)
+\|
+= link_to 'Back', stamps_path
