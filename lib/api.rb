@@ -23,6 +23,16 @@ class API < Grape::API
       Stamp.publishing(Time.now)
     end
   end
+  resource "version" do
+    # ex) http://localhost:3000/api/v1/users
+    desc "returns all tournaments"
+    get do
+      max_t = Tournament.maximum('updated_at')
+      max_s = Stamp.maximum('updated_at')
+
+      return max_t.strftime("%Y%m%d%H%M%S") + max_s.strftime("%Y%m%d%H%M%S")
+    end
+  end
   #resource "users" do
   #  # ex) http://localhost:3000/api/v1/users
   #  desc "returns all users"
