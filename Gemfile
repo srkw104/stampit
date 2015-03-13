@@ -51,4 +51,5 @@ gem 'rails_admin'
 gem 'haml-rails'
 gem 'erb2haml'
 
-
+gem 'grape'
+gem 'grape-jbuilder'
