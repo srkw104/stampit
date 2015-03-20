@@ -15,14 +15,36 @@ class API < Grape::API
     get do
       Tournament.publishing(Time.now)
     end
+
+    desc "returns a tournament"
+    params do
+      requires :id, type:Integer
+    end
+    route_param :id do
+      get do
+        Tournament.find(params[:id])
+      end
+    end
   end
+
   resource "stamps" do
     # ex) http://localhost:3000/api/v1/users
-    desc "returns all tournaments"
+    desc "returns all stamps"
     get do
       Stamp.publishing(Time.now)
     end
+
+    desc "returns same tournaments on stamps"
+    params do
+      requires :id, type:Integer
+    end
+    route_param :id do
+      get do
+        Stamp.where("tournament_id = ? ", params[:id])
+      end
+    end
   end
+
   resource "version" do
     # ex) http://localhost:3000/api/v1/users
     desc "returns all tournaments"
@@ -30,7 +52,7 @@ class API < Grape::API
       max_t = Tournament.maximum('updated_at')
       max_s = Stamp.maximum('updated_at')
 
-      return max_t.strftime("%Y%m%d%H%M%S") + max_s.strftime("%Y%m%d%H%M%S")
+      [max_t.strftime("%Y%m%d%H%M%S") + max_s.strftime("%Y%m%d%H%M%S")]
     end
   end
   #resource "users" do
