@@ -69,6 +69,6 @@ class StampsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stamp_params
-      params.require(:stamp).permit(:tournament_id, :name, :beacon_minor, :latitude, :longitude, :deleted)
+      params.require(:stamp).permit(:tournament_id, :name, :beacon_minor, :latitude, :longitude, :deleted, :photo)
     end
 end

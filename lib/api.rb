@@ -45,6 +45,23 @@ class API < Grape::API
     end
   end
 
+  resource "stamp_image" do
+    desc "returns same tournaments on stamps image"
+    params do
+      requires :id, type:Integer
+    end
+    route_param :id do
+      get do
+        stamp = Stamp.find(params[:id])
+
+        content_type "application/octet-stream"
+        header['Content-Disposition'] = "attachement; filename=%d_%s" % [stamp.id, stamp.photo.original_filename]
+        env['api.format'] = :binary
+	File.open(stamp.photo.path()).read
+      end
+    end
+  end
+
   resource "version" do
     # ex) http://localhost:3000/api/v1/users
     desc "returns all tournaments"

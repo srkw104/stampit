@@ -53,3 +53,5 @@ gem 'erb2haml'
 
 gem 'grape'
 gem 'grape-jbuilder'
+
+gem 'paperclip'

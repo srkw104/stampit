@@ -18,6 +18,9 @@
 %p
   %b Deleted:
   = @stamp.deleted
+%p
+  %b Photo:
+  = image_tag @stamp.photo.url(:medium)
 
 = link_to 'Edit', edit_stamp_path(@stamp)
 \|

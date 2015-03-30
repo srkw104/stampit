@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312070324) do
+ActiveRecord::Schema.define(version: 20150320072610) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -31,8 +31,12 @@ ActiveRecord::Schema.define(version: 20150312070324) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "deleted"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "tournaments", force: :cascade do |t|
